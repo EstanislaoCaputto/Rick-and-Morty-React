@@ -5,9 +5,11 @@ import Pagination from "./components/Pagination";
 
 
 
+
 function App() {
   const [personajes, setPersonajes] = useState([]);
   const [info, setInfo] = useState({})
+  
 
   const urlInicial = "https://rickandmortyapi.com/api/character"
   const fetchPersonajes = (url) => {
@@ -31,7 +33,6 @@ function App() {
     fetchPersonajes(urlInicial)
   },[])
   return (
-    
       <div className="App">
         <Nav brand={"Rick and Morty"} />
         <Pagination
@@ -43,6 +44,7 @@ function App() {
         <div className="container mt-5">
           <GridCards arrayDeResultado={personajes} />
         </div>
+        {}
         <Pagination
           prev={info.prev}
           next={info.next}
