@@ -7,8 +7,8 @@ const Nav = ({ brand }) => {
           <a className="navbar-brand text-uppercase" href="/">
             {brand}
           </a>
-          <Link to="/about" className="nav-link" style={{ color: "white" }}>
-            About
+          <Link to="/location" className="nav-link" style={{ color: "white" }}>
+            Locations
           </Link>
           <Link to="/contact" className="nav-link" style={{ color: "white" }}>
             Contact

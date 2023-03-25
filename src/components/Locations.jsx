@@ -16,9 +16,9 @@ const Location = () => {
     },[])
     return (
       <div className="container mt-4">
-        <div className="row">
+        <div className="col-md-6">
           {lugares.map((place, idx) => (
-            <div className="col" key={idx}>
+            <div className="row" key={idx}>
               <div className="card">
                 <div className="card-body">
                   <h3 className="card-title">{place.name}</h3>

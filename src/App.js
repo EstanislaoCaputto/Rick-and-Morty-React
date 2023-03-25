@@ -1,57 +1,23 @@
-import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import GridCards from "./components/GridCards";
-import Pagination from "./components/Pagination";
+import { UserProvider } from "./context/UserContext";
+import Personaje from "./components/Personaje";
 
 
 
 
 function App() {
-  const [personajes, setPersonajes] = useState([]);
-  const [info, setInfo] = useState({})
-  
-
-  const urlInicial = "https://rickandmortyapi.com/api/character"
-  const fetchPersonajes = (url) => {
-    fetch(url)
-     .then(respuesta => respuesta.json())
-     .then(data => {
-      setInfo(data.info)
-      setPersonajes(data.results)
-     })
-     .catch(err=>console.log(err))
-  }
-
-  const onPrevious = () => {
-    fetchPersonajes(info.prev)
-  }
-  const onNext = () => {
-    fetchPersonajes(info.next)
-  }
-
-  useEffect(()=>{
-    fetchPersonajes(urlInicial)
-  },[])
   return (
-      <div className="App">
+    <div className="App">
+      <UserProvider>
         <Nav brand={"Rick and Morty"} />
-        <Pagination
-          prev={info.prev}
-          next={info.next}
-          onPrev={onPrevious}
-          onNext={onNext}
-        />
         <div className="container mt-5">
-          <GridCards arrayDeResultado={personajes} />
+          <Personaje />
+          <GridCards />
         </div>
-        {}
-        <Pagination
-          prev={info.prev}
-          next={info.next}
-          onPrev={onPrevious}
-          onNext={onNext}
-        />
-      </div>
+        
+      </UserProvider>
+    </div>
   );
 }
 

@@ -1,17 +1,21 @@
-const Pagination = ({prev, next,onPrev, onNext}) => {
-    const handlePrev = () => {onPrev()}
+import { useContext } from "react"
+import UserContext from "../context/UserContext"
+
+const Pagination = () => {
+  const {info, onPrevious, onNext} = useContext(UserContext)
+    const handlePrev = () => {onPrevious()}
     const handleNext = () => {onNext()}
     return (
       <nav>
         <ul className="pagination justify-content-center mt-3">
-          {prev ? (
+          {info.prev ? (
             <li className="page-item">
               <button className="page-link" onClick={handlePrev}>
                 Prev
               </button>
             </li>
           ) : null}
-          {next ? (
+          {info.next ? (
             <li className="page-item">
             <button className="page-link" onClick={handleNext}>
               Next
