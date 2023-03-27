@@ -12,10 +12,15 @@ function App() {
       <UserProvider>
         <Nav brand={"Rick and Morty"} />
         <div className="container mt-5">
-          <Personaje />
-          <GridCards />
+          <div className="row">
+            <div className="col-md-6">
+              <GridCards />
+            </div>
+            <div className="col-md-6">
+              <Personaje />
+            </div>
+          </div>
         </div>
-        
       </UserProvider>
     </div>
   );
